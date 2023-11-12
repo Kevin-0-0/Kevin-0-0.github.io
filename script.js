@@ -37,8 +37,8 @@ const getData = async(query) =>{
         `
         divs.addEventListener("click",function(){
             window.open(article.url)
-        })
-    })
+        });
+    });
 }
 window.addEventListener("load",function(){
     getData("Trending");
