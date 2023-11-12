@@ -1,10 +1,13 @@
-const key="0f31d84dd451445da26bf194a1e8af82";
-const url="https://newsapi.org/v2/everything?q=";
+
+const apikey = '12e7d6c65fd2727e9bb5947a3803b860';
+const url = 'https://gnews.io/api/v4/search?q=';
+
 let SearchBtn=document.getElementById("searchBtn");
 let inputData=document.getElementById("inputData");
 
 let cardData=document.querySelector(".cardData");
 let searchType=document.getElementById("type");
+
 
 inputData.addEventListener('keyup', (event) => {
     if(inputData.value.trim()==""){
@@ -13,35 +16,41 @@ inputData.addEventListener('keyup', (event) => {
     if (event.keyCode=== 13) {
       SearchBtn.click();
     }
-  });
-const getData = async(query) =>{
-    let res=await fetch(`${url}${query}&apiKey=${key}`);
-    const jsonData= await res.json();
+});
+
+const getData =(query) =>{
+
+fetch(`${url}${query}&lang=en&apikey=${apikey}`)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    articles = data.articles;
     searchType.innerText="Search : "+query;
     inputData.value="";
     cardData.innerHTML="";
-  
-    jsonData.articles.forEach(function(article){
-        if(!article.urlToImage) return;
-        if((article.title.length+article.description.length)>270){
-            return ;
-        }
-        let divs=document.createElement("div");
+
+    for (i = 0; i < articles.length; i++) {
+
+      let divs=document.createElement("div");
         divs.classList.add("card");
         cardData.appendChild(divs);
         divs.innerHTML=`
-        <img src="${article.urlToImage}" alt="Loading">
-                <h3>${article.title}</h3>
-                <p>${article.description}</p>
+        <img src="${articles[i]['image']}" alt="Loading">
+                <h3>${articles[i]['title']}</h3>
+                <p>${articles[i]['description']}</p>
                 
         `
+        let link =articles[i]['url'];
         divs.addEventListener("click",function(){
-            window.open(article.url)
-        });
-    });
+            window.open(link);
+        }); 
+    }
+  });
+
 }
 window.addEventListener("load",function(){
-    getData("Trending");
+    getData("India");
 })
 
 SearchBtn.addEventListener("click",function(){
