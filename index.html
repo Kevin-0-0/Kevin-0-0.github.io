@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="style2.css">
+     <!-- <link href="https"> -->
+</head>
+<body>
+    <div class="contain">
+        <nav>
+          
+            <div class="logo">
+                <img id="logon" src="./Assets/Logo-02.png" alt="Logo">
+          
+                <li onclick="navClick('politics')" id="politics" >Politics</li>
+                <li onclick="navClick('sports')" id="sports" >Sports</li>
+                <li onclick="navClick('technology')" id="technology">Technology</li>
+
+            </div>
+          
+            <br>
+          
+            <div class="category">
+                <h1 id="type" id="result">
+
+                </h1>
+            </div>
+          
+            <div class="searchBar">
+                <input type="text" placeholder="Search Here.." value="" id="inputData">
+                <button id="searchBtn">Search</button>
+            </div>
+          
+        </nav>
+        <div class="cardData">
+        </div>
+    </div>
+    <script src="script2.js"></script>
+</body>
+</html>
