@@ -1,1 +1,1 @@
-# quick-news
+# Quick-News
