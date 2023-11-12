@@ -1,4 +1,3 @@
-
 const apikey = '12e7d6c65fd2727e9bb5947a3803b860';
 const url = 'https://gnews.io/api/v4/search?q=';
 
