@@ -1,4 +1,4 @@
-const key="0f31d84dd451445da26bf194a1e8af82";
+const key="f31d84dd451445da26bf194a1e8af82";
 const url="https://newsapi.org/v2/everything?q=";
 let SearchBtn=document.getElementById("searchBtn");
 let inputData=document.getElementById("inputData");
